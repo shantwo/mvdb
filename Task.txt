@@ -1,0 +1,28 @@
+Task List :
+        Header : vassili HTML
+        Footer : Vassili
+        DB Creation : vassili
+
+Organisation :
+        4 first hours :
+        db.php / database population / Genre list & lastly entered movies -> vassili
+        front setup & scripting index / Search functions -> john
+
+        4 next hours :
+        Collapsible list / Page menu / Ajax menu /filters -> john
+        Details/ DELETE modal / scripting -> Vassili
+
+        4 next hours :
+        Modify/ADD/ modal -> John
+        IMDB api / pagination -> Vassili
+
+        2 hours later :
+        front Genre / scripting -> john
+        Check existence / insert -> vassili
+
+        2 last hours
+        Testing / polishing / error checking / optimisation
+
+        //IF MORE TIME THEN OPTIONS ELSE LAAAATTTTTTEEEEE!!!!!
+
+CHOICES : Framework : materialize / JQuery
