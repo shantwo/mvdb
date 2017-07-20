@@ -13,3 +13,21 @@
         </div>
     </form>
 </div>
+<!-- APPEL AJAX SEARCH FUNCTION -->
+<script>
+    $("#search2").on("keydown", function(e){
+        e.preventDefault();
+        var search = $("#search2").val();
+        $.ajax({
+            type:'POST',
+            url: "ajax/search.php",
+            data: {'search':search}
+        })
+        .done(function(data) {
+
+        })
+        .fail(function() {
+            alert("Bad news BRO, some gremlins ate your code!!");
+        });
+    })
+</script>
