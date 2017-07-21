@@ -6,6 +6,7 @@
         <script lang="javascript" type="text/javascript" src="lib/jquery/jquery-3.2.1.min.js"></script>
         <script lang="javascript" type="text/javascript" src="lib/materialize/js/materialize.min.js"></script>
         <link rel="stylesheet" type="text/css" href="lib/materialize/css/materialize.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     <body>
