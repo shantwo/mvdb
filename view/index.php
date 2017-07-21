@@ -12,22 +12,13 @@
             <i class="blue-grey-text darken-2-text material-icons">close</i>
         </div>
     </form>
-</div>
-<!-- APPEL AJAX SEARCH FUNCTION -->
-<script>
-    $("#search2").on("keydown", function(e){
-        e.preventDefault();
-        var search = $("#search2").val();
-        $.ajax({
-            type:'POST',
-            url: "ajax/search.php",
-            data: {'search':search}
-        })
-        .done(function(data) {
+    <!-- Liste de res   ultats du search -->
+    <div id="resultsSearch">
 
-        })
-        .fail(function() {
-            alert("Bad news BRO, some gremlins ate your code!!");
-        });
-    })
+    </div>
+</div>
+
+
+<!-- APPEL AJAX SEARCH FUNCTION -->
+<script lang="javascript" type="text/javascript" src="js/ajax_call_search2.js">
 </script>
