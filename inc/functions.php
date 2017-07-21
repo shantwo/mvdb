@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 //FUNCTION TO EXECUTE pdo
 function execute_sql_lookfor( $requestSql , $expression, $pdo ){
     $pdoStatement = $pdo -> prepare( $requestSql );
@@ -66,3 +67,23 @@ function LookFor($expression, $pdo){
 }
 
 ?>
+=======
+function getLatestEntries() {
+    global $pdo;
+    $sql = 'SELECT mov_id, mov_title, mov_year, mov_poster
+            FROM movie
+            ORDER BY mov_id DESC
+            LIMIT 4
+            ';
+    $pdoStatement = $pdo->query($sql);
+    if ($pdoStatement === false) {
+    	print_r($pdo->errorInfo());
+        return false;
+    }
+    else {
+        return $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+    }
+}
+
+ ?>
+>>>>>>> 910f86999230fc3d21d2267cef6c1c05644d712c

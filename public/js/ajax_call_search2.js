@@ -15,7 +15,7 @@ $("#search2").on("keyup", function(e){
             for ( i = 0 ; i < typeArray.length ; i++){
                 var toto = data[typeArray[i]].length;
                 if (toto !== 0){
-                    $("#resultsSearch").append("<h4>"+typeArray[i].toUpperCase()+"</h4>");
+                    $("#resultsSearch").append("<ul class='collection with-header'><li class='collection-header blue-grey darken-2 white-text'><h4><i class='material-icons'>dvr</i> | "+typeArray[i].toUpperCase()+"</h4></li>");
                     for( j=0 ; j < toto ; j++ ){
                         display_info(data, j,typeArray[i]);
                     }
@@ -35,14 +35,15 @@ function display_info(json, level, type){
     info_type_test(type);
     if ( way !== 'mov_title'){
         $("#resultsSearch").append(
-            "<section><img src='"+ location['mov_poster'] +"' height='50'><span><h5>"+location['mov_title']+"</h5><p>"+location[way]+"</p></span><br>"
+            "<li class='collection-item' style='list-style-type:none;margin-bottom:1em;height:25px;padding-left:5px'><strong>"+location['mov_title']+"</strong> - "+location[way]+"<img class='secondary-content' src='"+ location['mov_poster'] +"'></li>"
         );
     }
     else{
         $("#resultsSearch").append(
-            "<section><img src='"+ location['mov_poster'] +"' height='50'><span><h5>"+location['mov_title']+"</h5></span><br>"
+            "<li class='collection-item' style='list-style-type:none;margin-bottom:1em;height:25px;padding-left:5px'><div><strong>"+location['mov_title']+"</strong><img class='secondary-content' src='"+ location['mov_poster'] +"'></div></li>"
         );
     }
+    $("#resultsSearch").append("</ul>");
 }
 
 
