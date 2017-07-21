@@ -12,6 +12,12 @@
             <i class="blue-grey-text darken-2-text material-icons">close</i>
         </div>
     </form>
+<<<<<<< HEAD
+    <!-- Liste de res   ultats du search -->
+    <div id="resultsSearch">
+
+    </div>
+=======
     <!-- Show latest entries -->
     <section id="latestEntries">
         <p id="latestEntriesTitle">Latest Entries:&nbsp;</p>
@@ -36,4 +42,10 @@
             <?php endforeach; ?>
         </div>
     </section>
+>>>>>>> 910f86999230fc3d21d2267cef6c1c05644d712c
 </div>
+
+
+<!-- APPEL AJAX SEARCH FUNCTION -->
+<script lang="javascript" type="text/javascript" src="js/ajax_call_search2.js">
+</script>
