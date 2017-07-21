@@ -82,4 +82,21 @@ function getLatestEntries() {
     }
 }
 
+//function to get the List
+function List_all_movies($pdo){
+    $requestSql = 'SELECT DISTINCT * FROM movie
+    LEFT JOIN country ON country.cou_id = movie.country_cou_id
+    LEFT JOIN medium ON medium.med_id = movie.medium_med_id
+    LEFT JOIN language ON language.lan_id = movie.language_lan_id';
+
+    $pdoStatement = $pdo -> prepare( $requestSql );
+    if ( $pdoStatement -> execute() === false ){
+        print_r( $pdoStatement -> errorInfo() );
+    }
+    else {
+        return $pdoStatement -> fetchAll(PDO::FETCH_ASSOC);
+    }
+}
+
+
 ?>

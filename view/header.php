@@ -10,11 +10,12 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     <body>
-        <nav class="blue-grey darken-2">
+        <nav class="blue-grey darken-2" style="margin-bottom:5%">
             <div class="nav-wrapper">
                 <a href="#" class="brand-logo right"><i class="large material-icons">movie</i>MVDB | Yet Another Movie Collection Manager</a>
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
                     <li><a href="">Home</a></li>
+                    <li><a href="list.php">List all movies</a></li>
                     <li><a href="">Genre</a></li>
                     <li><a href="">Add a Movie</a></li>
                     <li>
