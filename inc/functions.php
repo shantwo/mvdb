@@ -1,6 +1,5 @@
 <?php
 
-<<<<<<< HEAD
 //FUNCTION TO EXECUTE pdo
 function execute_sql_lookfor( $requestSql , $expression, $pdo ){
     $pdoStatement = $pdo -> prepare( $requestSql );
@@ -66,8 +65,6 @@ function LookFor($expression, $pdo){
     return $jayson;
 }
 
-?>
-=======
 function getLatestEntries() {
     global $pdo;
     $sql = 'SELECT mov_id, mov_title, mov_year, mov_poster
@@ -85,5 +82,4 @@ function getLatestEntries() {
     }
 }
 
- ?>
->>>>>>> 910f86999230fc3d21d2267cef6c1c05644d712c
+?>
