@@ -65,12 +65,35 @@ function LookFor($expression, $pdo){
     return $jayson;
 }
 
-function getLatestEntries() {
+// Function to return the latest entries
+function getLatestEntries($limit = 4) {
     global $pdo;
     $sql = 'SELECT mov_id, mov_title, mov_year, mov_poster
             FROM movie
             ORDER BY mov_id DESC
-            LIMIT 4
+            LIMIT '.$limit.'
+            ';
+    $pdoStatement = $pdo->query($sql);
+    if ($pdoStatement === false) {
+    	print_r($pdo->errorInfo());
+        return false;
+    }
+    else {
+        return $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+    }
+}
+
+// Function to return the categories
+function getGenreList($limit = 0) {
+    global $pdo;
+    $sql = 'SELECT gen_name, mov_id, mov_title, gen_id, COUNT(DISTINCT mov_id) AS mov_count
+            FROM movie
+            LEFT OUTER JOIN genre_has_movie
+            ON mov_id = movie_mov_id
+            LEFT OUTER JOIN genre
+            ON gen_id = genre_gen_id
+            GROUP BY gen_id
+            LIMIT '.$limit.'
             ';
     $pdoStatement = $pdo->query($sql);
     if ($pdoStatement === false) {

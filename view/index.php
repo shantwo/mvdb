@@ -41,8 +41,24 @@
             <?php endforeach; ?>
         </div>
     </section>
-</div>
 
+    <!-- Show the movie genres -->
+    <section id="movieGenres">
+        <p id="movieGenreTitle">Genre:&nbsp;</p>
+        <div class="row center-cols center-align">
+            <?php $genreList = getGenreList(4); ?>
+            <?php foreach ($genreList as $currentArray) : ?>
+                <div class="col m3">
+                        <div  class="chip">
+                            <a href="#<?= $currentArray['gen_id'] ?>">
+                                <?= $currentArray['gen_name'] ?>&nbsp;(<?= $currentArray['mov_count'] ?>)
+                            </a>
+                        </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
+</div>
 
 <!-- APPEL AJAX SEARCH FUNCTION -->
 <script lang="javascript" type="text/javascript" src="js/ajax_call_search2.js">
