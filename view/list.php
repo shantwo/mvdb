@@ -3,7 +3,7 @@
     <?php foreach($Array_list as $value):?>
         <div class="card horizontal">
             <div class="card-image">
-                <img src="../public/files/<?= $value['mov_poster'] ?>" height="250">
+                <img src="../public/files/<?= $value['mov_poster'] ?>" height="300">
             </div>
             <div class="card-stacked">
                 <div class="card-content">
@@ -32,24 +32,27 @@
 
 <script type="text/javascript">
     $(".btn").on("click", function(){
-        var id = this.name;
+        console.log(this.name);
+        id = this.name;
         modalcontent(id);
     });
 
     function modalcontent(valeurId){
         $(".modal-content").html("");
+        console.log(valeurId);
             $.ajax({
                 type:'POST',
                 url: "ajax/read.php",
                 dataType : 'json',
-                data: {'id':id}
+                data: {'id':valeurId}
             })
             .done(function(data) {
-                print_r(data);
+                console.log('ok');
+                console.log(data);
             })
             .fail(function() {
                 alert("Bad news BRO, some gremlins ate your code!!");
             });
-        }
+
     }
 </script>

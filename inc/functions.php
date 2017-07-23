@@ -98,5 +98,15 @@ function List_all_movies($pdo){
     }
 }
 
-
+//function for ajax : read
+function execute_sql_movie( $requestSql , $token , $variable , $pdo ){
+    $pdoStatement = $pdo -> prepare( $requestSql );
+    $pdoStatement -> bindValue( $token , $variable );
+    if ( $pdoStatement -> execute() === false ){
+        print_r( $pdoStatement -> errorInfo() );
+    }
+    else {
+        return $pdoStatement -> fetchAll(PDO::FETCH_ASSOC);
+    }
+}
 ?>
