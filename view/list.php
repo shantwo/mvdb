@@ -26,7 +26,7 @@
 
     </div>
     <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">CLOSE</a>
     </div>
 </div>
 
@@ -49,6 +49,21 @@
             .done(function(data) {
                 console.log('ok');
                 console.log(data);
+                $(".modal-content").append("");
+                $(".modal-content").append("<img src='files/"+data[0]['mov_poster']+"' height='300' style='float:right' /><h4>"+data[0]['mov_title']+"</h4><br />");
+                $(".modal-content").append("<hr />");
+                $(".modal-content").append("<strong>TITLE : </strong>"+data[0]['mov_title']+"<br />");
+                $(".modal-content").append("<strong>ACTORS : </strong>"+data[0]['mov_actors']+"<br />");
+                $(".modal-content").append("<strong>DIRECTORS : </strong>"+data[0]['mov_directors']+"<br />");
+                $(".modal-content").append("<strong>COUNTRY : </strong>"+data[0]['cou_name']+"<br />");
+                $(".modal-content").append("<strong>LANGUAGE : </strong>"+data[0]['lan_name']+"<br />");
+                $(".modal-content").append("<strong>MEDIUM : </strong>"+data[0]['med_name']+"<br />");
+                $(".modal-content").append("<strong>IMDB RATING : </strong>"+data[0]['mov_imdb_rating']+"<br />");
+                $(".modal-content").append("<strong>LOCATION : </strong>"+data[0]['mov_location']+"<br />");
+                $(".modal-content").append("<strong>NOTE : </strong>"+data[0]['mov_note']+"<br />");
+                $(".modal-content").append("<strong>YEAR : </strong>"+data[0]['mov_year']+"<br />");
+                $(".modal-content").append("<strong>RUN TIME : </strong>"+data[0]['mov_run_time']+"<br />");
+                $(".modal-content").append("<strong>SYNOPSIS : </strong>"+data[0]['mov_synopsis']+"<br />");
             })
             .fail(function() {
                 alert("Bad news BRO, some gremlins ate your code!!");
