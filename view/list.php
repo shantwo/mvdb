@@ -13,7 +13,8 @@
                     <p><?= $value['mov_synopsis'] ?></p>
                 </div>
                 <div class="card-action">
-                    <a href="#modal1" class="btn modal-trigger" name="<?= $value['mov_id']?>">SEE DETAILS</a>
+                    <a href="#modal1"  class="view btn modal-trigger" name="<?= $value['mov_id']?>">SEE DETAILS</a>
+                    <!-- <a href="#modal1" id="edit" class="btn modal-trigger" name="<?= $value['mov_id']?>">EDIT DETAILS</a> -->
                 </div>
             </div>
         </div>
@@ -26,12 +27,12 @@
 
     </div>
     <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">CLOSE</a>
     </div>
 </div>
 
 <script type="text/javascript">
-    $(".btn").on("click", function(){
+    $(".view").on("click", function(){
+        $('#modal1').modal('open');
         console.log(this.name);
         id = this.name;
         modalcontent(id);
@@ -64,6 +65,9 @@
                 $(".modal-content").append("<strong>YEAR : </strong>"+data[0]['mov_year']+"<br />");
                 $(".modal-content").append("<strong>RUN TIME : </strong>"+data[0]['mov_run_time']+"<br />");
                 $(".modal-content").append("<strong>SYNOPSIS : </strong>"+data[0]['mov_synopsis']+"<br />");
+                $(".modal-footer").html("");
+                $(".modal-footer").append('<a href="#!" id="edit" class="modal-action waves-effect waves-green btn-flat" name="'+data[0]['mov_id']+'">EDIT</a>');
+                $(".modal-footer").append('<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">CLOSE</a>');
             })
             .fail(function() {
                 alert("Bad news BRO, some gremlins ate your code!!");
