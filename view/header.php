@@ -14,7 +14,7 @@
             <div class="nav-wrapper">
                 <a href="#" class="brand-logo right"><i class="large material-icons">movie</i>MVDB | Yet Another Movie Collection Manager</a>
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
-                    <li><a href="">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li><a href="list.php">List all movies</a></li>
                     <li><a href="">Genre</a></li>
                     <li><a href="">Add a Movie</a></li>
