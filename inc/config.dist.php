@@ -1,10 +1,6 @@
 <?php
-
-// PHP Session init
-//session_start();
-
-// DB configuration
-$config = array(
+// DATABASE CONFIGURATION
+$DB_config = array(
 	'DB_username' => '',
 	'DB_password' => '',
 	'DB_database' => '',
