@@ -93,6 +93,7 @@ function getGenreList($limit = 0) {
             LEFT OUTER JOIN genre
             ON gen_id = genre_gen_id
             GROUP BY gen_id
+            ORDER BY mov_count DESC
             LIMIT '.$limit.'
             ';
     $pdoStatement = $pdo->query($sql);
