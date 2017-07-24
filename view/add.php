@@ -1,5 +1,4 @@
 <script lang="javascript" type="text/javascript" src="js/list_modal_init.js"></script>
-
 <div class="row">
     <form class="col s12" action="add.php" method="post" enctype="multipart/form-data">
         <div class="row">
@@ -107,7 +106,7 @@
     </form>
     <div class="row">
         <div class="col s11"></div>
-        <input type="submit" class="col s1 waves-effect waves-light btn" value="OMDb" />
+        <input type="submit" class="col s1 waves-effect waves-light btn" value="OMDb" id="omdb" />
     </div>
 </div>
 <script lang="javascript" type="text/javascript">
@@ -120,5 +119,14 @@
         clear: 'Clear',
         close: 'Ok',
         closeOnSelect: true // Close upon selecting a date,
+    });
+    $('#omdb').click(function(e) {
+        var title = $('#movieTitle').val();
+        $.ajax({
+            type:'POST',
+            url: "ajax/omdb.php",
+            dataType : 'json',
+            data: {'title':title}
+        });
     });
 </script>

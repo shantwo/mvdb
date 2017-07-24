@@ -99,12 +99,13 @@ if (!empty($_POST)) {
         print_r($errorList);
     }
 }
-
-// Populate the drop-downs
-$genre = getGenreList();
-$languages = getLanguages();
-$countries = getCountries();
-$media = getMedia();
+else {
+    // Populate the drop-downs
+    $genre = getGenreList();
+    $languages = getLanguages();
+    $countries = getCountries();
+    $media = getMedia();
+}
 
 include "../view/add.php";
 include "../view/footer.php";

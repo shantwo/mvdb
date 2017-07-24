@@ -219,4 +219,23 @@ function filterIntInputPost($name, $defaultValue=0) {
 	}
 	return $defaultValue;
 }
+
+// Return OMDb search from title (s=)
+function omdbSearch($search) {
+    $ch = curl_init(); // Init curl resource
+    curl_setopt($ch, CURLOPT_URL, "http://www.omdbapi.com/?s=".$search."&apikey=ec6483bd"); // set url
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); // Return the transfer as a string
+    $output = curl_exec($ch);
+    return json_decode(curl_exec($ch), true); // Get the string and make it a json
+}
+
+// Return OMDb particular title froé IMDb ID (i=)
+function omdbImdbGet($imdbId) {
+    $ch = curl_init(); // Init curl resource
+    curl_setopt($ch, CURLOPT_URL, "http://www.omdbapi.com/?i=".$imdbId."&apikey=ec6483bd"); // set url
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); // Return the transfer as a string
+    $output = curl_exec($ch);
+    return json_decode(curl_exec($ch), true); // Get the string and make it a json
+}
+
 ?>
