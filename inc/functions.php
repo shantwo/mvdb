@@ -109,4 +109,16 @@ function execute_sql_movie( $requestSql , $token , $variable , $pdo ){
         return $pdoStatement -> fetchAll(PDO::FETCH_ASSOC);
     }
 }
+
+function List_all_language($pdo){
+    $requestSql = 'SELECT *
+            FROM language';
+    $pdoStatement = $pdo -> prepare( $requestSql );
+    if ( $pdoStatement -> execute() === false ){
+        print_r( $pdoStatement -> errorInfo() );
+    }
+    else {
+        return $pdoStatement -> fetchAll(PDO::FETCH_ASSOC);
+    }
+}
 ?>
