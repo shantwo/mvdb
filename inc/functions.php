@@ -83,8 +83,8 @@ function getLatestEntries($limit = 4) {
     }
 }
 
-// Function to return the categories
-function getGenreList($limit = 0) {
+// Function to return the used categories
+function getUsedGenreList($limit = 0) {
     global $pdo;
     $sql = 'SELECT gen_name, mov_id, mov_title, gen_id, COUNT(DISTINCT mov_id) AS mov_count
             FROM movie
@@ -95,6 +95,74 @@ function getGenreList($limit = 0) {
             GROUP BY gen_id
             ORDER BY mov_count DESC
             LIMIT '.$limit.'
+            ';
+    $pdoStatement = $pdo->query($sql);
+    if ($pdoStatement === false) {
+    	print_r($pdo->errorInfo());
+        return false;
+    }
+    else {
+        return $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+    }
+}
+
+// Function to return the complete categories list
+function getGenreList() {
+    global $pdo;
+    $sql = 'SELECT gen_id, gen_name
+            FROM genre
+            ORDER BY gen_name ASC
+            ';
+    $pdoStatement = $pdo->query($sql);
+    if ($pdoStatement === false) {
+    	print_r($pdo->errorInfo());
+        return false;
+    }
+    else {
+        return $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+    }
+}
+
+// Function to return the language list
+function getLanguages() {
+    global $pdo;
+    $sql = 'SELECT lan_id, lan_name
+            FROM language
+            ORDER BY lan_name ASC
+            ';
+    $pdoStatement = $pdo->query($sql);
+    if ($pdoStatement === false) {
+    	print_r($pdo->errorInfo());
+        return false;
+    }
+    else {
+        return $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+    }
+}
+
+// Function to return the country list
+function getCountries() {
+    global $pdo;
+    $sql = 'SELECT cou_id, cou_name
+            FROM country
+            ORDER BY cou_name ASC
+            ';
+    $pdoStatement = $pdo->query($sql);
+    if ($pdoStatement === false) {
+    	print_r($pdo->errorInfo());
+        return false;
+    }
+    else {
+        return $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+    }
+}
+
+// Function to return the media list
+function getMedia() {
+    global $pdo;
+    $sql = 'SELECT med_id, med_name
+            FROM medium
+            ORDER BY med_name ASC
             ';
     $pdoStatement = $pdo->query($sql);
     if ($pdoStatement === false) {
@@ -132,5 +200,23 @@ function execute_sql_movie( $requestSql , $token , $variable , $pdo ){
     else {
         return $pdoStatement -> fetchAll(PDO::FETCH_ASSOC);
     }
+}
+
+// String filter function for POST
+function filterStringInputPost($name, $defaultValue='') {
+	$getValue = filter_input(INPUT_POST, $name);
+	if ($getValue !== false) {
+		return trim(strip_tags($getValue));
+	}
+	return $defaultValue;
+}
+
+// Integer filter function for POST
+function filterIntInputPost($name, $defaultValue=0) {
+	$getValue = filter_input(INPUT_POST, $name);
+	if ($getValue !== false) {
+		return intval(trim($getValue));
+	}
+	return $defaultValue;
 }
 ?>

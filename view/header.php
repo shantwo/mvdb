@@ -17,7 +17,7 @@
                     <li><a href="index.php">Home</a></li>
                     <li><a href="list.php">List all movies</a></li>
                     <li><a href="">Genre</a></li>
-                    <li><a href="">Add a Movie</a></li>
+                    <li><a href="add.php">Add a Movie</a></li>
                     <li>
                         <i class="material-icons">search</i>
                     </li>

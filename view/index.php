@@ -46,7 +46,7 @@
     <section id="movieGenres">
         <p id="movieGenreTitle">Genre:&nbsp;</p>
         <div class="row center-cols center-align">
-            <?php $genreList = getGenreList(4); ?>
+            <?php $genreList = getUsedGenreList(4); ?>
             <?php foreach ($genreList as $currentArray) : ?>
                 <div class="col m3">
                         <div  class="chip">
